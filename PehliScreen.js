@@ -3,9 +3,12 @@ import { useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
+// import getApiHook from './GetApiHook';
 
 export default function MyScreen() {
   
+  // const {data} = getApiHook();
+
   const [username, onChangeUsername] = useState('');
   const [passsword, onChangePassword] = useState('');
 
