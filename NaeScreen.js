@@ -21,62 +21,86 @@ export default function NewName({navigation, route}) {
   }
 
   useEffect(()=>{
-    let myArray = [{key:0, title:'Akhzar'},{key:1, title:'Nazir'}]
-    AsyncStorage.getItem('myname').then((data)=>{
-      console.log('then area');
-      if(data){
-        console.log('if area');
-        let originalForm = JSON.parse(data);
-        console.log('Youtube Channel Lecture Data = ', originalForm[0]);
-      }else{
-        console.log('else area');
-        AsyncStorage.setItem('myname', JSON.stringify(myArray));
-      }
-    }).catch((error)=>{
-      console.log('Error', error);
-    })
-
-
-
-
-
-
-    AsyncStorage.setItem("data",JSON.stringify(data));
-    AsyncStorage.getItem("data")
-    .then((data)=>{
-      console.log('data[0] == ',data[0]);
-      if(data){
-        let myData = JSON.parse(data);
-        console.log('myData == ',myData[0]);
-      }else{
-        console.log('Data not Found');
-      }
-    }).catch((error)=>{
-      console.log(error);
-    })
     
-    
-    
+    // let myArray = [{key:0, title:'War'},{key:1, title:'War on'}]
+
     if(data){
-        AsyncStorage.getItem("data")
-            .then((userData) => {
-                console.log('then data');
-                if (userData) {
-                  console.log('if data');
-                    let newuserData = JSON.parse(userData);                    
-                    console.log("if data already exist : ", newuserData);
-                }else{
-                  console.log('userData');
-                  AsyncStorage.setItem("data", JSON.stringify(data));
-                }
-            })
-            .catch((error) => {
-                console.log('Error',error);
-            });
+    AsyncStorage.getItem('movies').then((mydata)=>{
+      console.log('Then area');
+      if(mydata){
+        console.log('if area');
+        var mynewdata = JSON.parse(mydata);
+        console.log('movies', mynewdata[0]);
       }else{
-        console.log('Not Yet')
-      }  
+        console.log('Else area');
+        AsyncStorage.setItem('movies', JSON.stringify(data));
+      }
+    });
+  }
   },[data])
+
+
+
+
+
+
+    
+    // AsyncStorage.getItem('myname').then((data)=>{
+    //   console.log('then area');
+    //   if(data){
+    //     console.log('if area');
+    //     let originalForm = JSON.parse(data);
+    //     console.log('Youtube Channel Lecture Data = ', originalForm[0]);
+    //   }else{
+    //     console.log('else area');
+    //     AsyncStorage.setItem('myname', JSON.stringify(myArray));
+    //   }
+    // }).catch((error)=>{
+    //   console.log('Error', error);
+    // })
+
+
+
+
+
+
+    // AsyncStorage.setItem("data",JSON.stringify(data));
+    // AsyncStorage.getItem("data")
+    // .then((data)=>{
+    //   console.log('data[0] == ',data[0]);
+    //   if(data){
+    //     let myData = JSON.parse(data);
+    //     console.log('myData == ',myData[0]);
+    //   }else{
+    //     console.log('Data not Found');
+    //   }
+    // }).catch((error)=>{
+    //   console.log(error);
+    // })
+    
+    
+    
+    // if(data){
+    //     AsyncStorage.getItem("data")
+    //         .then((userData) => {
+    //             console.log('then data');
+    //             if (userData) {
+    //               console.log('if data');
+    //                 let newuserData = JSON.parse(userData);                    
+    //                 console.log("if data already exist : ", newuserData);
+    //             }else{
+    //               console.log('userData');
+    //               AsyncStorage.setItem("data", JSON.stringify(data));
+    //             }
+    //         })
+    //         .catch((error) => {
+    //             console.log('Error',error);
+    //         });
+    //   }else{
+    //     console.log('Not Yet')
+    //   }  
+
+
 
   return (
     <View style={styles.container}>
